@@ -1,0 +1,35 @@
+.card {
+  margin: 2%;
+  border: 1px solid #61dafb;
+  transition: box-shadow 180ms ease-out;
+}
+
+.card__image {
+  background-color: #282c34;
+  padding: 0 10px;
+}
+
+.card__title {
+  font-size: 1.8rem;
+  text-align: center;
+  background-color: hsl(222, 14%, 10%);
+  padding: 10px 1px;
+}
+
+.card:hover {
+  box-shadow: 0 0 0 2px #61dafb;
+  /* border: 2px solid #61dafb; */
+}
+
+.card__body__buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background-color: hsl(222, 14%, 10%);
+  color: #61dafb;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  /* border: 1px solid #61dafb; */
+}
