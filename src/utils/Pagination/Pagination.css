@@ -1,0 +1,19 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+}
+
+button {
+    padding: 0.75rem 0.75rem;
+    
+}
+
+.pagination button.active{
+    border-bottom: 2px solid #61dafb;
+    font-weight: 600;
+    font-size: 30px;
+    transition: all ease-out 0.5s;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Card.css'
+import pokeball_placeholder from '../../image/Pokeball-Placeholder.png'
 
 const Card = (props, { name = props.name, url = props.url }) => {
   const [info, setInfo] = useState([[], { isLoaded: false }]);
@@ -27,7 +28,7 @@ const Card = (props, { name = props.name, url = props.url }) => {
           <div className='card__image'>
             <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.front_default} alt={name}></img>
           </div>
-          : 'Image Loading...'
+          : <img src={pokeball_placeholder}/>
         }
         <div className='card__body__buttons'>
           <button>Details</button>
