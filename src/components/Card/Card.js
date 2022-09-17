@@ -14,8 +14,11 @@ const Card = (props, { name = props.name, url = props.url }) => {
     getInfo();
   }, []);
 
-  const [upCase] = name.toUpperCase()
-  const title = name.replace(name[0], upCase)
+  let title = undefined;
+  if (info.isLoaded) {
+    const [upCase] = name.toUpperCase()
+    title = name.replace(name[0], upCase)
+  }
 
   return (
     <div className='card'>
@@ -28,7 +31,7 @@ const Card = (props, { name = props.name, url = props.url }) => {
           <div className='card__image'>
             <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.front_default} alt={name}></img>
           </div>
-          : <img src={pokeball_placeholder}/>
+          : <img src={pokeball_placeholder} />
         }
         <div className='card__body__buttons'>
           <button>Details</button>

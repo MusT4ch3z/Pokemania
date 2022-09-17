@@ -2,15 +2,15 @@ import { useState, useEffect } from 'react';
 import './Header.css'
 
 
-const Header = ({ data, changeDataToRender }) => {
+const Header = ({ fetchedData, data, changeData, dataToRender, changeDataToRender }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
   }
   const handleSearchChange = (e) => {
-    if (!e.target.value) return changeDataToRender(data)
-    let result = data.results.filter(pokemon => pokemon.name.includes(e.target.value.toLowerCase()))
-    changeDataToRender(result)
+    if (!e.target.value) { changeData(fetchedData); changeDataToRender(data.slice(0, 10)) }
+    let result = fetchedData.results.filter(pokemon => pokemon.name.includes(e.target.value.toLowerCase()))
+    changeData(result, result.isSearching = true)
   }
 
   return (
@@ -32,7 +32,7 @@ const Header = ({ data, changeDataToRender }) => {
       </nav>
       <div className='header__search search'>
         <input onChange={handleSearchChange} className='search__input' type='text' placeholder='Search' />
-        <button onSubmit={handleSubmit} className='search__button'>
+        <button /*onSubmit={handleSubmit}*/ className='search__button'>
           Search
         </button>
       </div>

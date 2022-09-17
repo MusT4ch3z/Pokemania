@@ -1,22 +1,16 @@
 import { useState, useEffect } from "react";
 import './Pagination.css'
 
-const Pagination = ({ changeCurrentPage, currentPage, nextPage, prevPage, totalItems, itemsLimit }) => {
+const Pagination = ({ changeCurrentPage, currentPage, nextPage, prevPage, totalItems, itemsPageLimit }) => {
 
   const [paginationData, setPaginationData] = useState({ isLoaded: false });
   const [totalPages, setTotalPages] = useState(0);
   let pages = [];
 
 
-  // let url = 'https://pokeapi.co/api/v2/pokemon/?&offset=0'
-
   useEffect(() => {
-    setTotalPages(Math.ceil(totalItems / itemsLimit));
-
-    // console.log('CurrentPage,next,prev,totalItems,itemsLimit: ', currentPage, nextPage, prevPage, totalItems, itemsLimit);
-    return () => {
-    }
-  }, [paginationData.count]);
+    setTotalPages(Math.ceil(totalItems / itemsPageLimit));
+  }, [totalItems]);
 
 
   if (4 < currentPage && currentPage <= totalPages - 4) {
@@ -65,8 +59,8 @@ const Pagination = ({ changeCurrentPage, currentPage, nextPage, prevPage, totalI
 
   return (
     <div className="pagination">
-      {/* Pagination:Total Items: {totalItems}
-      Total Pages: {totalPages} */}
+      Pagination:Total Items: {totalItems}
+      Total Pages: {totalPages}
 
 
 
