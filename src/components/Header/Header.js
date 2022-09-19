@@ -4,14 +4,16 @@ import './Header.css'
 
 const Header = ({ fetchedData, data, changeData, dataToRender, changeDataToRender }) => {
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
   const handleSearchChange = (e) => {
     if (!e.target.value) { changeData(fetchedData); changeDataToRender(data.slice(0, 10)) }
     let result = fetchedData.results.filter(pokemon => pokemon.name.includes(e.target.value.toLowerCase()))
     changeData(result, result.isSearching = true)
   }
+
+  const handleSearch = (result) => {
+    
+  }
+  
 
   return (
     <header className='header'>
@@ -32,7 +34,7 @@ const Header = ({ fetchedData, data, changeData, dataToRender, changeDataToRende
       </nav>
       <div className='header__search search'>
         <input onChange={handleSearchChange} className='search__input' type='text' placeholder='Search' />
-        <button /*onSubmit={handleSubmit}*/ className='search__button'>
+        <button onClick={handleSearch} className='search__button'>
           Search
         </button>
       </div>

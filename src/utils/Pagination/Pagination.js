@@ -79,8 +79,8 @@ const Pagination = ({ changeCurrentPage, currentPage, nextPage, prevPage, totalI
 
   return (
     <div className="pagination">
-      Pagination:Total Items: {totalItems}
-      Total Pages: {totalPages}
+      {/* Pagination:Total Items: {totalItems}
+      Total Pages: {totalPages} */}
 
 
 

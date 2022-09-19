@@ -31,7 +31,7 @@ const CardList = ({ data = data.result, dataToRender, changeDataToRender }) => {
     return (
       <div>
         <Pagination changeCurrentPage={changeCurrentPage} currentPage={currentPage} totalItems={data.length} itemsPageLimit={itemsPageLimit} />
-        PageInfo: {currentPage},{itemsPageLimit}
+        {/* PageInfo: {currentPage},{itemsPageLimit} */}
 
         <div className='card_list'>
           {dataToRender.map((pokemon) => <Card key={pokemon.name} name={pokemon.name} url={pokemon.url} data={dataToRender} />)}
