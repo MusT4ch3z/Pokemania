@@ -23,6 +23,9 @@ const CardList = ({ data = data.result, dataToRender, changeDataToRender }) => {
     splitItems();
   }, [data, currentPage, dataToRender.isSearching]);
 
+  useEffect(() => {
+    setCurrentPage(1)
+      }, [data.length]);
 
   if (dataToRender) {
     return (
