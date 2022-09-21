@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import './Pagination.css'
+import { changeCurrentPageAction } from "../../store/paginationReducer";
 
-const Pagination = ({ changeCurrentPage, currentPage, nextPage, prevPage, totalItems, itemsPageLimit }) => {
+const Pagination = () => {
 
-  const [paginationData, setPaginationData] = useState({ isLoaded: false });
+  const dispatch = useDispatch()
+  const currentPage = useSelector(state => state.paginationReducer.currentPage)
+  const itemsPageLimit = useSelector(state => state.paginationReducer.itemsPageLimit)
+  const totalItems = useSelector(state => state.dataReducer.storeData.count)
   const [totalPages, setTotalPages] = useState(0);
   let pages = [];
 
@@ -57,24 +62,24 @@ const Pagination = ({ changeCurrentPage, currentPage, nextPage, prevPage, totalI
   // console.log(totalPages, pages);
 
   const toStartPage = () => {
-    changeCurrentPage(1)
+    dispatch(changeCurrentPageAction(1))
   }
 
   const toLastPage = () => [
-    changeCurrentPage(totalPages)
+    dispatch(changeCurrentPageAction(totalPages))
   ]
 
   const toPrevPage = () => {
-    if (currentPage > 1) changeCurrentPage(currentPage - 1)
+    if (currentPage > 1) dispatch(changeCurrentPageAction(currentPage - 1))
   }
 
   const toNextPage = () => {
-    if (currentPage < totalPages) changeCurrentPage(currentPage + 1)
+    if (currentPage < totalPages) dispatch(changeCurrentPageAction(currentPage + 1))
   }
 
   const changePage = (e) => {
     let page = parseInt(e.target.innerText)
-    changeCurrentPage(page)
+    dispatch(changeCurrentPageAction(page))
   }
 
   return (

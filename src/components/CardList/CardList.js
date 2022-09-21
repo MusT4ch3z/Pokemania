@@ -2,11 +2,14 @@ import './CardList.css'
 import { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 import Pagination from '../../utils/Pagination/Pagination';
+import { useSelector } from 'react-redux';
 
 const CardList = ({ data = data.result, dataToRender, changeDataToRender }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPageLimit, setItemsPageLimit] = useState(10);
-
+  const storeData = useSelector(state => state.dataReducer.storeData)
+  const isDataFetched = useSelector(state=> state.dataReducer.isLoaded)
+  // const dataToRender = useSelector(state => state.dataReducer.dataToRender)
 
   const changeCurrentPage = (Page) => {
     setCurrentPage(Page)
@@ -19,15 +22,15 @@ const CardList = ({ data = data.result, dataToRender, changeDataToRender }) => {
 
   useEffect(() => {
     // changeDataToRender(dataToRender.isLoaded = true)
-    console.log(dataToRender, dataToRender.isLoaded, dataToRender.isSearching)
+    // console.log(dataToRender, dataToRender.isLoaded, dataToRender.isSearching)
     splitItems();
   }, [data, currentPage, dataToRender.isSearching]);
 
   useEffect(() => {
     setCurrentPage(1)
-      }, [data.length]);
+  }, [data.length]);
 
-  if (dataToRender) {
+  if (isDataFetched) {
     return (
       <div>
         <Pagination changeCurrentPage={changeCurrentPage} currentPage={currentPage} totalItems={data.length} itemsPageLimit={itemsPageLimit} />

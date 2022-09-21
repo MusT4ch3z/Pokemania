@@ -3,11 +3,15 @@ import './App.css';
 import Header from './components/Header/Header';
 import CardList from './components/CardList/CardList';
 import FetchData from './utils/FetchData/FetchData';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchDataFromApi } from './utils/FetchData/FetchData';
 
 
 
 function App() {
+  const dispatch = useDispatch();
+  
+  (() => { dispatch(fetchDataFromApi()) })()
 
   const [fetchedData, setFetchedData] = useState([]);
   const [data, setData] = useState([]);
@@ -22,14 +26,18 @@ function App() {
       })
   }
 
+  // const reduxData = useSelector(state=>state.dataReducer.data)
+  // useEffect(() => {
+  //   console.log('redux data',reduxData)
+  // }, [data.isLoaded]);
 
   useEffect(() => {
     fetchData()
   }, [data.isLoaded]);
 
-  useEffect(() => {
-    console.log('data is', data, 'data to render', dataToRender)
-  }, [dataToRender, data]);
+  // useEffect(() => {
+  //   console.log('data is', data, 'data to render', dataToRender)
+  // }, [dataToRender, data]);
 
   const changeDataToRender = (args) => {
     setDataToRender(args)

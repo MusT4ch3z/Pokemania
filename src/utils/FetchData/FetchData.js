@@ -1,28 +1,10 @@
-import { useState, useEffect } from 'react'
+import { fetchDataFromApiAction } from "../../store/dataReducer"
 
-const FetchData = () => {
-  const [data, setData] = useState([], { isLoaded: false });
-  const [searchData, setSearchData] = useState();
-
-  const url = 'https://pokeapi.co/api/v2/pokemon?limit=3000&offset=0'
-  const fetchData = () => {
+export const fetchDataFromApi = () => {
+  return dispatch => {
+    const url = 'https://pokeapi.co/api/v2/pokemon?limit=3000&offset=0'
     fetch(url).then((res) => res.json())
-      .then((data) => {
-        setData(data, data.isLoaded = true)
-        return data
-      })
-      .then(data => {
-        setSearchData(data);
-        console.log('search data is', data, searchData)
-      })
+      .then(json => dispatch(fetchDataFromApiAction(json))
+      )
   }
-
-
-
-  useEffect(() => {
-    fetchData()
-  }, [data.isLoaded]);
-
 }
-
-export default FetchData

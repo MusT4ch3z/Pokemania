@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
 import './Header.css'
+import { fetchDataFromApi } from '../../utils/FetchData/FetchData';
+import { useDispatch } from 'react-redux';
 
 
 const Header = ({ fetchedData, data, changeData, dataToRender, changeDataToRender }) => {
+
+  const dispatch = useDispatch()
 
   const handleSearchChange = (e) => {
     if (!e.target.value) { changeData(fetchedData); changeDataToRender(data.slice(0, 10)) }
@@ -11,9 +15,9 @@ const Header = ({ fetchedData, data, changeData, dataToRender, changeDataToRende
   }
 
   const handleSearch = (result) => {
-    
+
   }
-  
+
 
   return (
     <header className='header'>
@@ -34,7 +38,7 @@ const Header = ({ fetchedData, data, changeData, dataToRender, changeDataToRende
       </nav>
       <div className='header__search search'>
         <input onChange={handleSearchChange} className='search__input' type='text' placeholder='Search' />
-        <button onClick={handleSearch} className='search__button'>
+        <button /*onClick={}*/ className='search__button'>
           Search
         </button>
       </div>
