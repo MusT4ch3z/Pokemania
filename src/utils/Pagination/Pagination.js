@@ -8,23 +8,13 @@ const Pagination = () => {
   const dispatch = useDispatch()
   const currentPage = useSelector(state => state.paginationReducer.currentPage)
   const itemsPageLimit = useSelector(state => state.paginationReducer.itemsPageLimit)
-  const totalItems = useSelector(state => state.dataReducer.storeData.count)
+  const totalItems = useSelector(state => state.dataReducer.data.length)
   const [totalPages, setTotalPages] = useState(0);
   let pages = [];
-
 
   useEffect(() => {
     setTotalPages(Math.ceil(totalItems / itemsPageLimit));
   }, [totalItems]);
-
-
-  // if (totalPages < 10) {
-  //   pages = [];
-  //   let i = 1;
-  //   for (i; i < totalPages; i++) {
-  //     pages.push(i)
-  //   }
-  // }
 
   if (4 < currentPage && currentPage <= totalPages - 4) {
     pages = [];
@@ -58,9 +48,7 @@ const Pagination = () => {
       }
     }
   }
-
   // console.log(totalPages, pages);
-
   const toStartPage = () => {
     dispatch(changeCurrentPageAction(1))
   }
@@ -86,15 +74,11 @@ const Pagination = () => {
     <div className="pagination">
       {/* Pagination:Total Items: {totalItems}
       Total Pages: {totalPages} */}
-
-
-
       <button onClick={toStartPage}>{'<<'}</button>
       <button onClick={toPrevPage}>{'<'}</button>
       {pages.map((page) => <button key={page} className={page === currentPage ? 'active' : undefined} onClick={changePage} >{page}</button>)}
       <button onClick={toNextPage}>{'>'}</button>
       <button onClick={toLastPage}>{'>>'}</button>
-
     </div>
   )
 }

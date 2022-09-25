@@ -24,7 +24,7 @@ const Card = (props, { name = props.name, url = props.url }) => {
     <div className='card'>
       <div className='card__title'>
         {info.isLoaded === true ? title
-          : 'Title Loading...'}
+          : 'Title is Loading...'}
       </div>
       <div className='card__body'>
         {info.isLoaded === true ?

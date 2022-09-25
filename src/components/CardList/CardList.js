@@ -2,45 +2,43 @@ import './CardList.css'
 import { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 import Pagination from '../../utils/Pagination/Pagination';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeCurrentPageAction } from '../../store/paginationReducer';
 
-const CardList = ({ data = data.result, dataToRender, changeDataToRender }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPageLimit, setItemsPageLimit] = useState(10);
-  const storeData = useSelector(state => state.dataReducer.storeData)
-  const isDataFetched = useSelector(state=> state.dataReducer.isLoaded)
-  // const dataToRender = useSelector(state => state.dataReducer.dataToRender)
 
-  const changeCurrentPage = (Page) => {
-    setCurrentPage(Page)
-  }
+const CardList = () => {
+  const dispatch = useDispatch();
+  const currentPage = useSelector(state => state.paginationReducer.currentPage)
+  const itemsPageLimit = useSelector(state => state.paginationReducer.itemsPageLimit)
+  const data = useSelector(state => state.dataReducer.data)
+  const isDataFetched = useSelector(state => state.dataReducer.isLoaded)
+  const sortType = useSelector(state => state.queryParamsReducer.sort)
+  const [dataToRender, setDataToRender] = useState([]);
 
   const splitItems = () => {
     console.log('items splitted')
-    changeDataToRender(data.slice((currentPage * itemsPageLimit) - itemsPageLimit, currentPage * itemsPageLimit), dataToRender.isLoaded = true)
+    setDataToRender(data.slice((currentPage * itemsPageLimit) - itemsPageLimit, currentPage * itemsPageLimit))
   }
 
   useEffect(() => {
-    // changeDataToRender(dataToRender.isLoaded = true)
-    // console.log(dataToRender, dataToRender.isLoaded, dataToRender.isSearching)
     splitItems();
-  }, [data, currentPage, dataToRender.isSearching]);
+  }, [data.length, currentPage, sortType, data[1]]);
 
   useEffect(() => {
-    setCurrentPage(1)
+    dispatch(changeCurrentPageAction(1))
   }, [data.length]);
 
   if (isDataFetched) {
     return (
       <div>
-        <Pagination changeCurrentPage={changeCurrentPage} currentPage={currentPage} totalItems={data.length} itemsPageLimit={itemsPageLimit} />
+        <Pagination />
         {/* PageInfo: {currentPage},{itemsPageLimit} */}
 
         <div className='card_list'>
           {dataToRender.map((pokemon) => <Card key={pokemon.name} name={pokemon.name} url={pokemon.url} data={dataToRender} />)}
         </div>
 
-        <Pagination changeCurrentPage={changeCurrentPage} currentPage={currentPage} totalItems={data.length} itemsPageLimit={itemsPageLimit} />
+        <Pagination />
       </div>
     )
   }
