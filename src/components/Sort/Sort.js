@@ -5,7 +5,6 @@ import './Sort.css'
 import { useEffect } from "react";
 
 const Sort = () => {
-  // const [sort, setSort] = useState('Default');
   const dispatch = useDispatch()
   const sortType = useSelector(state => state.queryParamsReducer.sort)
   const data = useSelector(state => state.dataReducer.data)

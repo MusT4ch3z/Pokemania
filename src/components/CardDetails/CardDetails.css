@@ -1,0 +1,27 @@
+thead {
+	/* background-color: hsl(222, 14%, 10%); */
+	color: white;
+	font-size: 1.4rem;
+}
+
+tbody {
+	font-size: 1.3rem;
+}
+
+table {
+	width: 100%;
+	border: 1px solid #a9edff;
+}
+
+/* td {
+	border: 1px solid white;
+	box-sizing: border-box;
+} */
+
+td:nth-child(2n) {
+	text-align: center;
+}
+
+tr:nth-child(2n) {
+	color: #a9edff;
+}

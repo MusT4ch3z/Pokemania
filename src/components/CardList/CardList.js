@@ -2,6 +2,7 @@ import './CardList.css'
 import { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 import Pagination from '../../utils/Pagination/Pagination';
+import CardDetails from '../CardDetails/CardDetails';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeCurrentPageAction } from '../../store/paginationReducer';
 
@@ -22,7 +23,7 @@ const CardList = () => {
 
   useEffect(() => {
     splitItems();
-  }, [data.length, currentPage, sortType, data[1]]);
+  }, [data.length, currentPage, sortType, itemsPageLimit]);
 
   useEffect(() => {
     dispatch(changeCurrentPageAction(1))
@@ -33,7 +34,7 @@ const CardList = () => {
       <div>
         <Pagination />
         {/* PageInfo: {currentPage},{itemsPageLimit} */}
-
+        {/* <CardDetails /> */}
         <div className='card_list'>
           {dataToRender.map((pokemon) => <Card key={pokemon.name} name={pokemon.name} url={pokemon.url} data={dataToRender} />)}
         </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './Pagination.css'
-import { changeCurrentPageAction } from "../../store/paginationReducer";
+import { changeCurrentPageAction, changeItemsPageLimitAction } from "../../store/paginationReducer";
 
 const Pagination = () => {
 
@@ -72,8 +72,11 @@ const Pagination = () => {
 
   return (
     <div className="pagination">
-      {/* Pagination:Total Items: {totalItems}
-      Total Pages: {totalPages} */}
+      <div className="pagination__page_limit">
+        <button className="pagination__page_limit__button" onClick={() => { dispatch(changeItemsPageLimitAction(10)) }}>10</button>
+        <button className="pagination__page_limit__button" onClick={() => { dispatch(changeItemsPageLimitAction(20)) }}>20</button>
+        <button className="pagination__page_limit__button" onClick={() => { dispatch(changeItemsPageLimitAction(50)) }}>50</button>
+      </div>
       <button onClick={toStartPage}>{'<<'}</button>
       <button onClick={toPrevPage}>{'<'}</button>
       {pages.map((page) => <button key={page} className={page === currentPage ? 'active' : undefined} onClick={changePage} >{page}</button>)}

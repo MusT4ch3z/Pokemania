@@ -16,9 +16,9 @@
    pointer-events: none;
 }
 
-/* .dropdown_menu.active{
+.dropdown_menu.active{
    opacity: 1;
-} */
+}
 
 .dropdown.active>button+.dropdown_menu,
 .dropdown>ul li:hover+.dropdown_menu {
@@ -30,6 +30,7 @@
 
 ul li {
    padding: 5px 0;
+   /* background-color: #282c34; */
 }
 
 ul li:hover {
