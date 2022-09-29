@@ -25,3 +25,8 @@ td:nth-child(2n) {
 tr:nth-child(2n) {
 	color: #a9edff;
 }
+
+.td_type {
+	padding:5px ;
+	text-align: center;
+}

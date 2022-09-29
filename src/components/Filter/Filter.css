@@ -1,0 +1,17 @@
+.filter__dropdown>button {
+    margin: 0 10px;
+}
+
+.filter__dropdown {
+    position: relative;
+}
+
+ul li {
+    padding: 5px 0;
+    background-color: hsl(222, 14%, 10%);
+    width: auto;
+}
+
+li::first-letter {
+    text-transform: capitalize;
+}

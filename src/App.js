@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchDataFromApi } from './utils/FetchData/FetchData';
 import Sort from './components/Sort/Sort';
 import { useEffect } from 'react';
+import Filter from './components/Filter/Filter';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,10 @@ function App() {
         <div className="wrapper">
           <div className="_container">
             <Header />
-            <Sort />
+            <div className='row'>
+              <Sort />
+              <Filter />
+            </div>
             <CardList />
           </div>
         </div>

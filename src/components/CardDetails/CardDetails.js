@@ -10,11 +10,10 @@ const CardDetails = ({ info }) => {
    const spAttack = stats[3].base_stat;
    const spDefense = stats[4].base_stat;
    // console.log('stats card detail',stats,hp,attack,defense,speed,spAttack,spDefense)
-   const typeSlot1 = info.types[0].type.name
-   const typeSlot2 = 2
-   const typeSlot3 = 3
-
-   console.log(typeSlot1)
+   const types = info.types.map(item => { const [upCase] = item.type.name.toUpperCase(); return item.type.name.replace(item.type.name[0], upCase)})
+   // console.log(types)
+   // const [upCase] = name.toUpperCase()
+   // title = name.replace(name[0], upCase)
 
    return (
       <div className="card_details">
@@ -59,8 +58,8 @@ const CardDetails = ({ info }) => {
             </thead>
             <tbody>
                <tr>
-                  <td>
-                     {typeSlot1}{typeSlot2}{typeSlot3}
+                  <td className='td_type'>
+                     {types.join(' ')}
                   </td>
                </tr>
             </tbody>

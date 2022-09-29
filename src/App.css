@@ -108,3 +108,8 @@ h6 {
   font-size: inherit;
   font-weight: 400;
 }
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
