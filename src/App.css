@@ -92,6 +92,7 @@ a:hover {
 }
 
 ul li {
+  transition: 0.1s;
   list-style: none;
 }
 
@@ -109,7 +110,18 @@ h6 {
   font-weight: 400;
 }
 
-.row{
+.row {
   display: flex;
   flex-direction: row;
+}
+
+button {
+  background-color: hsl(222, 14%, 10%);
+  color: #61dafb;
+  padding: 0.3rem;
+  font-size: 1.5rem;
+}
+
+.space_between{
+  justify-content: space-between;
 }

@@ -1,7 +1,10 @@
+import { useSelector } from 'react-redux';
 import './CardDetails.css'
+import EvolutionChain from './EvolutionChain/EvolutionChain';
 
 const CardDetails = ({ info }) => {
 
+   const data = useSelector(state => state.dataReducer.data)
    const stats = info.stats;
    const hp = stats[0].base_stat;
    const attack = stats[1].base_stat;
@@ -9,11 +12,9 @@ const CardDetails = ({ info }) => {
    const speed = stats[5].base_stat;
    const spAttack = stats[3].base_stat;
    const spDefense = stats[4].base_stat;
-   // console.log('stats card detail',stats,hp,attack,defense,speed,spAttack,spDefense)
-   const types = info.types.map(item => { const [upCase] = item.type.name.toUpperCase(); return item.type.name.replace(item.type.name[0], upCase)})
-   // console.log(types)
-   // const [upCase] = name.toUpperCase()
-   // title = name.replace(name[0], upCase)
+   const types = info.types.map(item => { const [upCase] = item.type.name.toUpperCase(); return item.type.name.replace(item.type.name[0], upCase) })
+
+   // console.log(info)
 
    return (
       <div className="card_details">
@@ -64,6 +65,7 @@ const CardDetails = ({ info }) => {
                </tr>
             </tbody>
          </table>
+         <EvolutionChain info={info}/>
       </div>
    )
 }

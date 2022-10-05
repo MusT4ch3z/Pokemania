@@ -14,7 +14,7 @@ const Pagination = () => {
 
   useEffect(() => {
     setTotalPages(Math.ceil(totalItems / itemsPageLimit));
-  }, [totalItems]);
+  }, [totalItems,itemsPageLimit]);
 
   if (4 < currentPage && currentPage <= totalPages - 4) {
     pages = [];

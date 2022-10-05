@@ -2,7 +2,6 @@ import './CardList.css'
 import { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 import Pagination from '../../utils/Pagination/Pagination';
-import CardDetails from '../CardDetails/CardDetails';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeCurrentPageAction } from '../../store/paginationReducer';
 

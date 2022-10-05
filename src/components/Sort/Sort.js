@@ -59,8 +59,8 @@ const Sort = () => {
         <div className="dropdown_menu">
           <ul>
             <li onClick={() => dispatch(switchToDefaultSortAction())}>Default</li>
-            <li onClick={() => dispatch(switchToAbSortAction())}>Alphabetically</li>
-            <li onClick={() => dispatch(switchToBaSortAction())}>yllacitebahplA</li>
+            <li onClick={() => dispatch(switchToAbSortAction())}>A-Z</li>
+            <li onClick={() => dispatch(switchToBaSortAction())}>Z-A</li>
           </ul>
         </div>
       </div>

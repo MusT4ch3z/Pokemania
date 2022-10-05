@@ -1,17 +1,28 @@
-.filter__dropdown>button {
+.filter__dropdown {
+    position: relative;
     margin: 0 10px;
 }
 
-.filter__dropdown {
-    position: relative;
+.filter__dropdown ul li {
+    padding: 10px 50px 9px 20px;
+    background-color: hsl(222, 14%, 10%);
+    border-bottom: 1px solid transparent;
+    width: auto;
 }
 
-ul li {
-    padding: 5px 0;
-    background-color: hsl(222, 14%, 10%);
-    width: auto;
+.filter__dropdown ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    gap: 0;
+    border: 1px solid #61dafb;
 }
 
 li::first-letter {
     text-transform: capitalize;
+}
+
+.filter__dropdown ul li:hover {
+    color: #61dafb;
+    border-bottom: 1px solid #61dafb;
 }

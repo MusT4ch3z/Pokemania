@@ -27,6 +27,14 @@ header {
   flex-direction: row;
 }
 
+.navbar__item:first-child {
+  margin: 0 0 0 10px;
+}
+
+.navbar__item:last-child {
+  margin: 0 10px 0 10px;
+}
+
 .navbar__item:not(:last-child) {
   margin: 0 10px;
 }
@@ -53,4 +61,8 @@ a:-webkit-any-link {
   background-color: transparent;
   color: #61dafb;
   border: 1px solid #61dafb;
+}
+
+li.navbar__item {
+  background-color: transparent;
 }

@@ -6,18 +6,16 @@ const Header = () => {
 
   const dispatch = useDispatch()
   const storeData = useSelector(state => state.dataReducer.storeData.results)
-  // const data = useSelector(state => state.dataReducer.data)
 
+  let result = undefined;
   const handleSearchChange = (e) => {
-    if (!e.target.value) { dispatch(changeDataAction(storeData,dataReducer.isSearching = false)) }
-    let result = storeData.filter(pokemon => pokemon.name.includes(e.target.value.toLowerCase()))
+    if (!e.target.value) { dispatch(changeDataAction(storeData, dataReducer.isSearching = false)) }
+    result = storeData.filter(pokemon => pokemon.name.includes(e.target.value.toLowerCase()))
+  }
+
+  const handleSearch = () => {
     dispatch(changeDataAction(result, dataReducer.isSearching = true))
   }
-
-  const handleSearch = (result) => {
-
-  }
-
 
   return (
     <header className='header'>
@@ -34,11 +32,14 @@ const Header = () => {
           <li className='navbar__item'>
             <a href="#items">Items</a>
           </li>
+          <li className='navbar__item'>
+            <a href="#about">About</a>
+          </li>
         </ul>
       </nav>
       <div className='header__search search'>
         <input onChange={handleSearchChange} className='search__input' type='text' placeholder='Search' />
-        <button /*onClick={}*/ className='search__button'> 
+        <button onClick={handleSearch} className='search__button'>
           Search
         </button>
       </div>
