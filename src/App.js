@@ -6,6 +6,7 @@ import { fetchDataFromApi } from './utils/FetchData/FetchData';
 import Sort from './components/Sort/Sort';
 import { useEffect } from 'react';
 import Filter from './components/Filter/Filter';
+import Reset from './components/Reset/Reset';
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
             <div className='row'>
               <Sort />
               <Filter />
+              <Reset />
             </div>
             <CardList />
           </div>

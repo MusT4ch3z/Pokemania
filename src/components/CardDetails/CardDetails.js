@@ -14,8 +14,6 @@ const CardDetails = ({ info }) => {
    const spDefense = stats[4].base_stat;
    const types = info.types.map(item => { const [upCase] = item.type.name.toUpperCase(); return item.type.name.replace(item.type.name[0], upCase) })
 
-   // console.log(info)
-
    return (
       <div className="card_details">
          <table>
