@@ -2,15 +2,12 @@
 	overflow-y: scroll;
 	height:15rem;
 	word-wrap: break-word;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 
 .card_details::-webkit-scrollbar {
 	display: none;
-}
-
-.card_details {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
 }
 
 thead {

@@ -1,0 +1,22 @@
+.ability {
+   display: flex;
+   flex-direction: column;
+   border-bottom: 1px solid #a9edff;
+}
+
+.card__ability_list::-webkit-scrollbar {
+   display: none;
+}
+
+.card__ability_list {
+   height: 15rem;
+   overflow-y: scroll;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+}
+
+.ability__title {
+   font-size: 1.25rem;
+   margin: 5px;
+   font-weight: 500;
+}

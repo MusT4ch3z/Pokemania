@@ -21,14 +21,17 @@ function App() {
   if (isDataFetched) {
     return (
       <div className="app">
+        {/* <div className="dark_background"/> */}
         <div className="wrapper">
           <div className="_container">
-            <Header />
-            <div className='row'>
-              <Sort />
-              <Filter />
-              <Reset />
-            </div>
+            {/* <div className="dark_background"> */}
+              <Header />
+              <div className='row'>
+                <Sort />
+                <Filter />
+                <Reset />
+              </div>
+            {/* </div> */}
             <CardList />
           </div>
         </div>

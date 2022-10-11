@@ -2,7 +2,7 @@
   margin: 2%;
   border: 1px solid #61dafb;
   transition: box-shadow 180ms ease-out;
-  min-width: 235px;
+  width: 17rem;
   height: 325px;
   display: flex;
   flex-direction: column;

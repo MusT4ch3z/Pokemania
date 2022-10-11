@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import './Card.css';
 import pokeball_placeholder from '../../image/Pokeball-Placeholder.png';
-import CardDetails from '../CardDetails/CardDetails';
-import Ability from '../Ability/Ability';
+import CardDetails from './CardDetails/CardDetails';
+import AbilityList from './AbilityList/AbilityList';
 
 const Card = ({ name, url }) => {
   const [info, setInfo] = useState([[], { isLoaded: false }]);
@@ -44,7 +44,7 @@ const Card = ({ name, url }) => {
         <div className='card__body'>
           {!showDetails && !showAbilities ? <div className='card__image'>
             <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.front_default} alt={name}></img>
-          </div> : showDetails ? <CardDetails info={info} /> : showAbilities ? <Ability info={info} /> : undefined}
+          </div> : showDetails ? <CardDetails info={info} /> : showAbilities ? <AbilityList info={info} /> : undefined}
 
           {/* {showDetails ? <CardDetails info={info} /> :
             <div className='card__image'>

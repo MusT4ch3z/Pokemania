@@ -125,3 +125,8 @@ button {
 .space_between {
   justify-content: space-between;
 }
+
+.dark_background{
+  background-color: hsl(222, 14%, 10%);
+  z-index: 50;
+}
