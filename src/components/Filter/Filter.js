@@ -25,20 +25,22 @@ const Filter = () => {
          .then(json => { filteredData = []; json.pokemon.map(item => filteredData.push(item.pokemon)); dispatch(changeDataAction(filteredData)) })
    }
 
-   if (isLoaded) {
-      return (
-         <div className="query__filter">
-            <div className="filter__dropdown dropdown" data-dropdown>
-               <button data-dropdown-button>Filter by Type </button>
+
+   return (
+      <div className="query__filter">
+         <div className="filter__dropdown dropdown" data-dropdown>
+            <button data-dropdown-button>Filter by Type </button>
+            {isLoaded ?
                <div className="dropdown_menu">
                   <ul>
                      {typesArr.map(type => <li onClick={() => filterHandle(type)} key={type}>{type}</li>)}
                   </ul>
                </div>
-            </div>
+               : undefined}
          </div>
-      )
-   }
+      </div>
+   )
+
 }
 
 export default Filter

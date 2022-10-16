@@ -115,6 +115,11 @@ h6 {
   flex-direction: row;
 }
 
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
 button {
   background-color: hsl(222, 14%, 10%);
   color: #61dafb;

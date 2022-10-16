@@ -38,12 +38,12 @@ const Card = ({ name, url }) => {
     return (
       <div className='card'>
         <div className='card__title'>
-          {info.isLoaded === true ? title
+          {info.isLoaded ? title.replace(/-/g, ' ').replace(/\b[\w]/g, letter => letter.toUpperCase())
             : 'Title is Loading...'}
         </div>
         <div className='card__body'>
           {!showDetails && !showAbilities ? <div className='card__image'>
-            <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.front_default} alt={name}></img>
+            <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.front_default||pokeball_placeholder} alt={name}></img>
           </div> : showDetails ? <CardDetails info={info} /> : showAbilities ? <AbilityList info={info} /> : undefined}
 
           {/* {showDetails ? <CardDetails info={info} /> :

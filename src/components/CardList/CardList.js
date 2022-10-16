@@ -16,7 +16,7 @@ const CardList = () => {
   const [dataToRender, setDataToRender] = useState([]);
 
   const splitItems = () => {
-    console.log('items splitted')
+    console.log('Pokemon List Rendered')
     setDataToRender(data.slice((currentPage * itemsPageLimit) - itemsPageLimit, currentPage * itemsPageLimit))
   }
 

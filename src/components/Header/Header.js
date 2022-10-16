@@ -1,6 +1,7 @@
 import './Header.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { changeDataAction, dataReducer } from '../../store/dataReducer';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -27,13 +28,13 @@ const Header = () => {
       <nav className='header__navbar navbar'>
         <ul className='navbar__list'>
           <li className='navbar__item'>
-            <a href="#home">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li className='navbar__item'>
-            <a href="#items">Items</a>
+            <Link to="/items">Items</Link>
           </li>
           <li className='navbar__item'>
-            <a href="#about">About</a>
+            <Link to="/about">About</Link>
           </li>
         </ul>
       </nav>

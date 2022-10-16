@@ -1,17 +1,20 @@
 import './App.css';
 import Header from './components/Header/Header';
-import CardList from './components/CardList/CardList';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDataFromApi } from './utils/FetchData/FetchData';
-import Sort from './components/Sort/Sort';
+import { fetchPokemonDataFromApi } from './utils/FetchData/FetchData';
 import { useEffect } from 'react';
-import Filter from './components/Filter/Filter';
-import Reset from './components/Reset/Reset';
+import { Route, Routes } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import HomePage from './components/HomePage/HomePage';
+import { fetchItemsDataFromApi } from './utils/FetchData/FetchData';
+import ItemsPage from './components/ItemsPage/ItemsPage';
+
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    (() => { dispatch(fetchDataFromApi()) })()
+    (() => { dispatch(fetchPokemonDataFromApi()) })();
+    (() => { dispatch(fetchItemsDataFromApi()) })()
   }, []);
 
   const isDataFetched = useSelector(state => state.dataReducer.isLoaded)
@@ -20,22 +23,22 @@ function App() {
 
   if (isDataFetched) {
     return (
-      <div className="app">
-        {/* <div className="dark_background"/> */}
-        <div className="wrapper">
-          <div className="_container">
-            {/* <div className="dark_background"> */}
+      <BrowserRouter>
+        <div className="app">
+          {/* <div className="dark_background"/> */}
+          <div className="wrapper">
+            <div className="_container">
+              {/* <div className="dark_background"> */}
               <Header />
-              <div className='row'>
-                <Sort />
-                <Filter />
-                <Reset />
-              </div>
-            {/* </div> */}
-            <CardList />
+              <Routes>
+                <Route exact path="/" element={<HomePage />} />
+                <Route path="/items" element={<ItemsPage />} />
+                <Route path="/about" element={"<AboutPage />"} />
+              </Routes>
+            </div>
           </div>
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }

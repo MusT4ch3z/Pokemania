@@ -1,0 +1,17 @@
+.category_list__body {
+    overflow: scroll;
+    height: 50rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    border: 1px solid #61dafb;
+    width: 15rem;
+}
+
+.category_list__body::-webkit-scrollbar {
+    display: none;
+}
+
+.category_list__title {
+    font-size: 1.6rem;
+    padding-bottom: 10px;
+}
