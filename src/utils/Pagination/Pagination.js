@@ -11,10 +11,11 @@ const Pagination = () => {
   const totalItems = useSelector(state => state.dataReducer.data.length)
   const [totalPages, setTotalPages] = useState(0);
   let pages = [];
+  let itemsPageLimitArr = [10, 20, 50]
 
   useEffect(() => {
     setTotalPages(Math.ceil(totalItems / itemsPageLimit));
-  }, [totalItems,itemsPageLimit]);
+  }, [totalItems, itemsPageLimit]);
 
   if (4 < currentPage && currentPage <= totalPages - 4) {
     pages = [];
@@ -70,18 +71,19 @@ const Pagination = () => {
     dispatch(changeCurrentPageAction(page))
   }
 
+
   return (
     <div className="pagination">
       <div className="pagination__page_limit">
-        <button className="pagination__page_limit__button" onClick={() => { dispatch(changeItemsPageLimitAction(10)) }}>10</button>
-        <button className="pagination__page_limit__button" onClick={() => { dispatch(changeItemsPageLimitAction(20)) }}>20</button>
-        <button className="pagination__page_limit__button" onClick={() => { dispatch(changeItemsPageLimitAction(50)) }}>50</button>
+        {itemsPageLimitArr.map(pageLimit => <button key={pageLimit} className={pageLimit === itemsPageLimit ? 'pagination__button active' : 'pagination__button'} onClick={() => { dispatch(changeItemsPageLimitAction(pageLimit)) }}>{pageLimit}</button>)}
       </div>
-      <button onClick={toStartPage}>{'<<'}</button>
-      <button onClick={toPrevPage}>{'<'}</button>
-      {pages.map((page) => <button key={page} className={page === currentPage ? 'active' : undefined} onClick={changePage} >{page}</button>)}
-      <button onClick={toNextPage}>{'>'}</button>
-      <button onClick={toLastPage}>{'>>'}</button>
+      <div className="pagination__nav__button">
+        <button className="pagination__button" onClick={toStartPage}>{'<<'}</button>
+        <button className="pagination__button" onClick={toPrevPage}>{'<'}</button>
+        {pages.map((page) => <button key={page} className={page === currentPage ? 'pagination__button active' : 'pagination__button'} onClick={changePage} >{page}</button>)}
+        <button className="pagination__button" onClick={toNextPage}>{'>'}</button>
+        <button className="pagination__button" onClick={toLastPage}>{'>>'}</button>
+      </div>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { changeDataAction } from "../../store/dataReducer";
+import { changeCurrentPageAction, changeItemsPageLimitAction } from "../../store/paginationReducer";
 import { switchToDefaultSortAction } from "../../store/queryParamsReducer";
 
 
@@ -11,10 +12,12 @@ const Reset = () => {
    const handleReset = () => {
       dispatch(changeDataAction(storeData.results))
       dispatch(switchToDefaultSortAction())
+      dispatch(changeCurrentPageAction(1))
+      dispatch(changeItemsPageLimitAction(10))
    }
 
    return (
-      <div>
+      <div className="query__reset">
          <button onClick={handleReset}>Reset</button>
       </div>
    )

@@ -1,12 +1,10 @@
 import { useSelector } from "react-redux"
-// import { dataReducer } from "../../store/dataReducer"
 import Category from "../Category/Category"
 import "./ItemCategoryList.css"
 
 const ItemCategoryList = () => {
    const itemsCategory = useSelector(state => state.dataReducer.itemCategory)
    const isLoaded = useSelector(state => state.dataReducer.isLoaded)
-   // console.log(itemsCategory)
 
    if (isLoaded) {
       return (

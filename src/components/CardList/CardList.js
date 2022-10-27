@@ -28,12 +28,11 @@ const CardList = () => {
     dispatch(changeCurrentPageAction(1))
   }, [data.length]);
 
+
   if (isDataFetched) {
     return (
       <div>
         <Pagination />
-        {/* PageInfo: {currentPage},{itemsPageLimit} */}
-        {/* <CardDetails /> */}
         <div className='card_list'>
           {dataToRender.map((pokemon) => <Card key={pokemon.name} name={pokemon.name} url={pokemon.url} data={dataToRender} />)}
         </div>

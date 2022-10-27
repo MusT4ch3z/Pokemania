@@ -2,13 +2,16 @@ import './Header.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { changeDataAction, dataReducer } from '../../store/dataReducer';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
 
 const Header = () => {
 
   const dispatch = useDispatch()
   const storeData = useSelector(state => state.dataReducer.storeData.results)
+  const [showSearchInput, setShowSearchInput] = useState(false);
 
-  let result = undefined;
+  let result = storeData;
   const handleSearchChange = (e) => {
     if (!e.target.value) { dispatch(changeDataAction(storeData, dataReducer.isSearching = false)) }
     result = storeData.filter(pokemon => pokemon.name.includes(e.target.value.toLowerCase()))
@@ -18,12 +21,16 @@ const Header = () => {
     dispatch(changeDataAction(result, dataReducer.isSearching = true))
   }
 
+  const switchShowSearchInput = () => {
+    setShowSearchInput(!showSearchInput)
+  }
+
   return (
     <header className='header'>
       <div className='header__title'>
-        <a href="#logo" className='header__logo'>
+        <Link to="/" className='header__logo'>
           Pokemania
-        </a>
+        </Link>
       </div>
       <nav className='header__navbar navbar'>
         <ul className='navbar__list'>
@@ -39,10 +46,21 @@ const Header = () => {
         </ul>
       </nav>
       <div className='header__search search'>
-        <input onChange={handleSearchChange} className='search__input' type='text' placeholder='Search' />
-        <button onClick={handleSearch} className='search__button'>
-          Search
-        </button>
+        {window.innerWidth > 630 ? <div>
+          <input onChange={handleSearchChange} className={'search__input'} type='text' placeholder='Search' />
+          <button onClick={() => handleSearch()} className='search__button'>
+            Search
+          </button>
+        </div>
+          : <div className='search__dropdown dropdown' data-dropdown>
+            <button onClick={() => { handleSearch(); switchShowSearchInput() }} className='search__button' data-dropdown-button>
+              Search
+            </button>
+            {<div className='dropdown__input'>
+              <input onChange={handleSearchChange} className={'search__input'} type='text' placeholder='Search' />
+            </div>
+            }
+          </div>}
       </div>
     </header>
   )

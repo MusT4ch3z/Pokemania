@@ -43,23 +43,8 @@ const Card = ({ name, url }) => {
         </div>
         <div className='card__body'>
           {!showDetails && !showAbilities ? <div className='card__image'>
-            <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.front_default||pokeball_placeholder} alt={name}></img>
+            <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.front_default || pokeball_placeholder} alt={name}></img>
           </div> : showDetails ? <CardDetails info={info} /> : showAbilities ? <AbilityList info={info} /> : undefined}
-
-          {/* {showDetails ? <CardDetails info={info} /> :
-            <div className='card__image'>
-              <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.front_default} alt={name}></img>
-            </div>}
-          {showAbilities ? <Ability info={info} /> :
-            <div className='card__image'>
-              <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.front_default} alt={name}></img>
-            </div>} */}
-          {/* {showDetails === false ?
-            <div className='card__image'>
-              <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.front_default} alt={name}></img>
-            </div>
-            : <img src={pokeball_placeholder} />
-          } */}
           <div className='card__body__buttons'>
             <button onClick={() => handleShowDetails()}>Details</button>
             <button onClick={() => handleShowAbilities()}>Abilities</button>

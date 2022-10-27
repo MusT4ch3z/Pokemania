@@ -1,5 +1,5 @@
 .ability__body{
-   margin: 5px;
+   padding: 5px;
    color:#a9edff;
    font-size: 16px;
    line-height: 1.5rem;
@@ -10,5 +10,5 @@
 .ability__button {
    font-size: 1.15rem;
    width: 5rem;
-   align-self: flex-end;
+   align-self: flex-end;  
 }

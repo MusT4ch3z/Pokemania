@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import image_placeholder from '../../image/Pokeball-Placeholder.png';
+import ItemDetails from "./ItemDetails/ItemDetails";
+import "./Item.css"
 
 const Item = ({ name, url }) => {
 
@@ -30,10 +32,10 @@ const Item = ({ name, url }) => {
             </div>
             <div className='card__body'>
                {!showDetails ? <div className='card__image'>
-                  <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.default||image_placeholder} alt={name}></img>
-               </div> : 'ITEM DETAILS'}
+                  <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.default || image_placeholder} alt={name}></img>
+               </div> : <ItemDetails info={info} />}
                <div className='card__body__buttons'>
-                  <button onClick={() => handleShowDetails()}>Details</button>
+                  <button className="item__button" onClick={() => handleShowDetails()}>Details</button>
                </div>
             </div>
          </div >

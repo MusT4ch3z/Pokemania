@@ -12,14 +12,13 @@ import ItemsPage from './components/ItemsPage/ItemsPage';
 
 function App() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     (() => { dispatch(fetchPokemonDataFromApi()) })();
     (() => { dispatch(fetchItemsDataFromApi()) })()
   }, []);
 
   const isDataFetched = useSelector(state => state.dataReducer.isLoaded)
-
-
 
   if (isDataFetched) {
     return (
@@ -31,7 +30,9 @@ function App() {
               {/* <div className="dark_background"> */}
               <Header />
               <Routes>
-                <Route exact path="/" element={<HomePage />} />
+                <Route path="/" element={<HomePage />}>
+                  <Route path="?sort={sort}" />
+                </Route>
                 <Route path="/items" element={<ItemsPage />} />
                 <Route path="/about" element={"<AboutPage />"} />
               </Routes>

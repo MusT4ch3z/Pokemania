@@ -20,7 +20,7 @@
 }
 
 .card__title {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   text-align: center;
   background-color: hsl(222, 14%, 10%);
   padding: 10px 1px;
@@ -28,14 +28,12 @@
 
 .card:hover {
   box-shadow: 0 0 0 2px #61dafb;
-  /* border: 2px solid #61dafb; */
 }
 
 .card__body__buttons {
   display: flex;
   flex-direction: column;
-  /* align-items: flex-end; */
-  
+  flex-grow: 1;
 }
 
 .card__body__buttons>button {
@@ -43,8 +41,4 @@
   color: #61dafb;
   padding: 0.3rem;
   font-size: 1.25rem;
-}
-
-.card:last-child{
-  align-content: end;
 }

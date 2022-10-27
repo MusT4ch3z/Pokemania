@@ -16,9 +16,6 @@
    pointer-events: none;
 }
 
-.dropdown_menu.active{
-   opacity: 1;
-}
 
 .dropdown.active>button+.dropdown_menu,
 .dropdown>ul li:hover+.dropdown_menu {

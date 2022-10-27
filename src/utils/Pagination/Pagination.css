@@ -3,15 +3,17 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 5px;
+    margin: 5px 0px;
 }
 
-button {
-    padding: 0.75rem 0.75rem;
-
+.pagination__button.active {
+    border-bottom: 2px solid #61dafb;
+    font-weight: 600;
+    font-size: 30px;
+    transition: all ease-out 0.5s;
 }
 
-.pagination button.active {
+.pagination__page_limit__button.active {
     border-bottom: 2px solid #61dafb;
     font-weight: 600;
     font-size: 30px;
@@ -20,4 +22,35 @@ button {
 
 .pagination__page_limit__button:last-child {
     margin-right: 20px;
+}
+
+@media (max-width:1024px) {
+    .pagination__button.active {
+        font-size: 27px;
+    }
+}
+
+@media (max-width:768px) {
+    .pagination {
+        flex-direction: column;
+    }
+
+    ._container {
+        max-width: 95%;
+    }
+}
+
+@media (max-width:480px) {
+    .pagination__button{
+        font-size: 14px;
+        padding: 8px 6px;
+    }
+
+    .pagination__button.active{
+        font-size: 22px;
+    }
+
+    ._container {
+        max-width: 99%;
+    }
 }
