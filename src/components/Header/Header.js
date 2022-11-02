@@ -9,7 +9,7 @@ const Header = () => {
 
   const dispatch = useDispatch()
   const storeData = useSelector(state => state.dataReducer.storeData.results)
-  const [showSearchInput, setShowSearchInput] = useState(false);
+  const [showNavBar, setShowNavBar] = useState(false);
 
   let result = storeData;
   const handleSearchChange = (e) => {
@@ -21,9 +21,19 @@ const Header = () => {
     dispatch(changeDataAction(result, dataReducer.isSearching = true))
   }
 
-  const switchShowSearchInput = () => {
-    setShowSearchInput(!showSearchInput)
+  const switchShowNavBar = () => {
+    setShowNavBar(!showNavBar)
   }
+
+  // document.querySelector('.hidden').addEventListener('click', (event) => {
+  //   event.preventDefault();
+  //   let target = document.querySelector('.hidden');
+  //   if (target.classList.contains('hidden')) {
+  //     target.classList.remove('hidden');
+  //   } else {
+  //     target.classList.add('hidden');
+  //   }
+  // });
 
   return (
     <header className='header'>
@@ -32,35 +42,30 @@ const Header = () => {
           Pokemania
         </Link>
       </div>
+
+      <button onClick={() => switchShowNavBar()} className='switch_show_navbar__button'>=</button>
+
       <nav className='header__navbar navbar'>
-        <ul className='navbar__list'>
-          <li className='navbar__item'>
+        <ul className={window.screen.width > 768 ? 'navbar__list' : !showNavBar ? 'navbar__list hidden' : 'navbar__list'}>
+          <li onClick={() => switchShowNavBar()} className={!showNavBar ? 'navbar__item hidden' : 'navbar__item'}>
             <Link to="/">Home</Link>
           </li>
-          <li className='navbar__item'>
+          <li onClick={() => switchShowNavBar()} className={!showNavBar ? 'navbar__item hidden' : 'navbar__item'}>
             <Link to="/items">Items</Link>
           </li>
-          <li className='navbar__item'>
+          <li onClick={() => switchShowNavBar()} className={!showNavBar ? 'navbar__item hidden' : 'navbar__item'}>
             <Link to="/about">About</Link>
           </li>
         </ul>
       </nav>
-      <div className='header__search search'>
-        {window.innerWidth > 630 ? <div>
-          <input onChange={handleSearchChange} className={'search__input'} type='text' placeholder='Search' />
-          <button onClick={() => handleSearch()} className='search__button'>
-            Search
-          </button>
+
+      <div className='header__search'>
+        <button onClick={() => { handleSearch(); }} className={!showNavBar ? 'search__button hidden' : 'search__button'}>
+          Search
+        </button>
+        <div className={!showNavBar ? 'search__input_form hidden' : 'search__input_form'}>
+          <input onChange={handleSearchChange} className='search__input' type='text' placeholder='Search' />
         </div>
-          : <div className='search__dropdown dropdown' data-dropdown>
-            <button onClick={() => { handleSearch(); switchShowSearchInput() }} className='search__button' data-dropdown-button>
-              Search
-            </button>
-            {<div className='dropdown__input'>
-              <input onChange={handleSearchChange} className={'search__input'} type='text' placeholder='Search' />
-            </div>
-            }
-          </div>}
       </div>
     </header>
   )

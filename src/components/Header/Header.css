@@ -5,13 +5,13 @@ header {
   align-items: center;
   margin-top: 5px;
   margin-bottom: 20px;
+  background-color: hsl(222, 14%, 10%);
 }
-
 
 .header__title {
   color: #61dafb;
   font-size: 36px;
-  padding: 0 10px;
+  padding: 5px 10px 0 10px;
 }
 
 .header__navbar {
@@ -42,6 +42,9 @@ a:-webkit-any-link {
 
 .header__search {
   margin-left: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 .search__input {
@@ -64,49 +67,66 @@ li.navbar__item {
   background-color: transparent;
 }
 
-.search__dropdown {
+.navbar__dropdown {
   position: relative;
 }
 
-.dropdown__input {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  left: -100%;
-  padding-top: .5rem;
-  transition: all 150ms ease-in-out;
-  transform: translateY(-10px);
-  opacity: 0;
-}
-
-.dropdown.active>button+.dropdown__input {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-  cursor: pointer;
-  z-index: 50;
+.switch_show_navbar__button {
+  display: none;
+  font-size: 27px;
+  margin-left: 70%;
 }
 
 /*      */
+
+@media (min-width:769px){
+  .navbar__item.hidden{
+    display: block;
+  }
+  .search__input_form.hidden{
+    display: block;
+  }
+  .search__button.hidden{
+    display: block;
+  }
+}
 
 @media (max-width:768px) {
   .header__title {
     font-size: 27px;
   }
 
-  .header__navbar {
-    font-size: 19px;
+  .navbar__list {
+    flex-direction: column;
+  }
+
+  .navbar__item {
+    padding: 0.4rem 0;
+    width: 40rem;
   }
 
   header {
-    margin-bottom: 10px;
+    flex-wrap: wrap;
   }
 
   .search__button {
     font-size: 18px;
   }
+
+  .search__input {
+    width: 14rem;
+  }
+
+  .switch_show_navbar__button {
+    display: block;
+  }
+
+  .header__navbar {
+    margin-bottom: 0.7rem;
+  }
 }
 
-@media (max-width:480px) {
+/* @media (max-width:480px) {
   .header__title {
     font-size: 24px;
   }
@@ -138,12 +158,5 @@ li.navbar__item {
 
   .navbar__item:last-child {
     margin: 0 10px 0 5px;
-  }
-}
-
-/* @media (max-width:361px){
-  .header__navbar{
-    overflow-x: scroll;
-    overflow-y: hidden;
   }
 } */

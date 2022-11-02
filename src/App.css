@@ -120,6 +120,10 @@ h6 {
   flex-direction: column;
 }
 
+.hidden {
+  display: none;
+}
+
 button {
   background-color: transparent;
   color: #61dafb;
@@ -158,8 +162,8 @@ button:hover {
   }
 }
 
-@media (max-width:480px){
+/* @media (max-width:480px){
   .query_params button {
     font-size: 16px;
   }
-}
+} */
