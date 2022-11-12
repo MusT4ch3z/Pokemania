@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchPokemonDataFromApi } from './utils/FetchData/FetchData';
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import HomePage from './components/HomePage/HomePage';
 import { fetchItemsDataFromApi } from './utils/FetchData/FetchData';
 import ItemsPage from './components/ItemsPage/ItemsPage';
@@ -23,7 +23,7 @@ function App() {
 
   if (isDataFetched) {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className="app">
           <div className="wrapper">
             <Header />
@@ -38,7 +38,7 @@ function App() {
             </div>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }

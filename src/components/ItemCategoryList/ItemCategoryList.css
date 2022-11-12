@@ -16,6 +16,11 @@
    padding-bottom: 10px;
 }
 
+.category .active {
+   font-weight: bold;
+   color: #61dafb;
+}
+
 @media (max-width:460px) {
    .category_list__body ul {
       columns: 2;

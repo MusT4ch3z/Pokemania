@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeDataAction } from "../../store/dataReducer";
+import { changeFilterAction } from "../../store/queryParamsReducer";
 import './Filter.css'
 
 const Filter = () => {
-   // const [filteredData, setFilteredData] = useState([]);
    let filteredData = [];
    const [isLoaded, setIsLoaded] = useState(false);
    const [typesArr, setTypesArr] = useState([]);
+   const typeState = useSelector(state => state.queryParamsReducer.filter)
    const dispatch = useDispatch();
    const url = 'https://pokeapi.co/api/v2/type/';
 
@@ -20,10 +21,13 @@ const Filter = () => {
    }, []);
 
    const filterHandle = (type) => {
-      console.log('filter handle', url + type); fetch(url + type)
+      dispatch(changeFilterAction(type))
+      fetch(url + type)
          .then(res => res.json())
          .then(json => { filteredData = []; json.pokemon.map(item => filteredData.push(item.pokemon)); dispatch(changeDataAction(filteredData)) })
    }
+
+   console.log(typeState)
 
 
    return (
@@ -33,7 +37,7 @@ const Filter = () => {
             {isLoaded ?
                <div className="dropdown_menu left120px">
                   <ul>
-                     {typesArr.map(type => <li onClick={() => filterHandle(type)} key={type}>{type}</li>)}
+                     {typesArr.map(type => <li className={typeState === type ? "active" : ""} onClick={() => filterHandle(type)} key={type}>{type}</li>)}
                   </ul>
                </div>
                : undefined}

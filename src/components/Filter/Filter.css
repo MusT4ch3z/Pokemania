@@ -36,3 +36,8 @@ li::first-letter {
         left: -120px;
     }
 }
+
+li.active {
+    font-weight: bold;
+    color: #61dafb;
+}
