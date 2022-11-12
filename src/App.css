@@ -9,6 +9,8 @@
   min-height: 100vh;
   height: 100%;
   color: white;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .body {
@@ -17,7 +19,7 @@
 
 .wrapper {
   overflow: hidden;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 ._container {
@@ -162,8 +164,8 @@ button:hover {
   }
 }
 
-/* @media (max-width:480px){
-  .query_params button {
-    font-size: 16px;
-  }
-} */
+.error {
+  font-size: 40px;
+  height: 210px;
+  padding-left: 5px;
+}

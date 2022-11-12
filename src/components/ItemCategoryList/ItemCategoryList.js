@@ -11,7 +11,9 @@ const ItemCategoryList = () => {
          <div className="category_list">
             <div className="category_list__title">Item Categories</div>
             <div className="category_list__body column">
-               {itemsCategory.results.map(i => <Category name={i.name} key={i.name} url={i.url} />)}
+               <ul>
+                  {itemsCategory.results.map(i => <li><Category name={i.name} key={i.name} url={i.url} /></li>)}
+               </ul>
             </div >
          </div>
       )

@@ -24,6 +24,7 @@ const Item = ({ name, url }) => {
    const handleShowDetails = () => {
       setShowDetails(!showDetails)
    }
+   console.log(info)
    if (isLoaded) {
       return (
          <div className='item card'>
@@ -33,7 +34,8 @@ const Item = ({ name, url }) => {
             <div className='card__body'>
                {!showDetails ? <div className='card__image'>
                   <img style={{ imageRendering: 'pixelated', height: '15rem' }} src={info.sprites.default || image_placeholder} alt={name}></img>
-               </div> : <ItemDetails info={info} />}
+               </div> :
+                  info.effect_entries.length > 0 ? <ItemDetails info={info} /> : <div className="error">Ooops...No information about it :(</div>}
                <div className='card__body__buttons'>
                   <button className="item__button" onClick={() => handleShowDetails()}>Details</button>
                </div>

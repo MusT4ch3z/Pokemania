@@ -31,7 +31,7 @@ const Filter = () => {
          <div className="filter__dropdown dropdown" data-dropdown>
             <button data-dropdown-button>Filter by Type </button>
             {isLoaded ?
-               <div className="dropdown_menu">
+               <div className="dropdown_menu left120px">
                   <ul>
                      {typesArr.map(type => <li onClick={() => filterHandle(type)} key={type}>{type}</li>)}
                   </ul>
