@@ -7,7 +7,7 @@ import "./ItemCategoryList.css"
 const ItemCategoryList = () => {
    const itemsCategory = useSelector(state => state.dataReducer.itemCategory)
    const isLoaded = useSelector(state => state.dataReducer.isLoaded)
-   const [activeItemsCategory, setActiveItemsCategory] = useState("Stat Boosts");
+   const [activeItemsCategory, setActiveItemsCategory] = useState("stat-boosts");
 
    if (isLoaded) {
       return (
