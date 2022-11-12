@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Pokemania/static/css/main.bf253ca8.css",
-    "main.js": "/Pokemania/static/js/main.dae84b3a.js",
+    "main.css": "/Pokemania/static/css/main.95c68c10.css",
+    "main.js": "/Pokemania/static/js/main.cb475ece.js",
     "static/media/PikachuSmol.png": "/Pokemania/static/media/PikachuSmol.63855f1756c857c42ab9.png",
     "static/media/Pokeball-Placeholder.png": "/Pokemania/static/media/Pokeball-Placeholder.f269640096f4bb4f4402.png",
     "index.html": "/Pokemania/index.html",
-    "main.bf253ca8.css.map": "/Pokemania/static/css/main.bf253ca8.css.map",
-    "main.dae84b3a.js.map": "/Pokemania/static/js/main.dae84b3a.js.map"
+    "main.95c68c10.css.map": "/Pokemania/static/css/main.95c68c10.css.map",
+    "main.cb475ece.js.map": "/Pokemania/static/js/main.cb475ece.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf253ca8.css",
-    "static/js/main.dae84b3a.js"
+    "static/css/main.95c68c10.css",
+    "static/js/main.cb475ece.js"
   ]
 }
