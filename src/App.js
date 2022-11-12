@@ -25,7 +25,6 @@ function App() {
     return (
       <BrowserRouter>
         <div className="app">
-          {/* <div className="dark_background"/> */}
           <div className="wrapper">
             <Header />
             <div className="_container">
